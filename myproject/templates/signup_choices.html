@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block stylesheet %}
+  <link rel="stylesheet" href="{% static 'css/accounts.css' %}">
+{% endblock %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+</head>
+<body>
+{% block body %}
+  <div class="container">
+    <h1 class="text-center logo my-4">
+      <a href="{% url 'home' %}">fitty</a>
+    </h1>
+    <h4>Sports and stats for everyone!</h4>
+      <div class="row justify-content-center">
+          <div class="card">
+              <div class="card-body">
+              <h3 class="card-title">I am a</h3>
+              <div class="choices">
+                <a href="../signup/trainee"><button type="button" class="btn btn-primary btn-lg btn-block" class="btn btn-outline-primary">Trainee</button></a>
+                <a href="../signup/trainer"><button type="button" class="btn btn-secondary btn-lg btn-block" class="btn btn-outline-primary">Trainer</button></a>
+              </div>
+              </div>
+              <div class="card-footer text-muted text-center">
+                    Already have an account? <a href="{% url 'login' %}">Log in</a>
+              </div>
+          </div>
+      </div>
+  </div>
+{% endblock %}
+</body>
+</html>

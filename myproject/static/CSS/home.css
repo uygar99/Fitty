@@ -1,0 +1,17 @@
+body {
+  background-color: #1b2426;
+}
+
+p{
+    text-shadow: #1b2426 50px 50px 50px !important;
+}
+h5{
+    text-shadow: #1b2426 50px 50px 50px;
+}
+h1 {
+    font-size: 30px;
+    text-align: center;
+    color: whitesmoke;
+}
+
+

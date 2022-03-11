@@ -1,0 +1,222 @@
+{%load static%}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Fitty</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
+	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
+	<meta name="author" content="FREEHTML5.CO" />
+
+  <!--
+	//////////////////////////////////////////////////////
+
+	FREE HTML5 TEMPLATE
+	DESIGNED & DEVELOPED by FREEHTML5.CO
+
+	Website: 		http://freehtml5.co/
+	Email: 			info@freehtml5.co
+	Twitter: 		http://twitter.com/fh5co
+	Facebook: 		https://www.facebook.com/fh5co
+
+	//////////////////////////////////////////////////////
+	 -->
+
+  	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<link rel="shortcut icon" href="{% static 'website/images /fit-boxing.svg'%}">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700,900' rel='stylesheet' type='text/css'>
+
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="{% static 'website/css/animate.css'%}">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="{% static 'website/css/icomoon.css'%}">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="{% static 'website/css/bootstrap.css'%}">
+	<!-- Superfish -->
+	<link rel="stylesheet" href="{% static 'website/css/superfish.css' %}">
+
+	<link rel="stylesheet" href="{% static 'website/css/style.css' %}">
+
+
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="{% static 'website/js/respond.min.js'%}"></script>
+	<![endif]-->
+
+	</head>
+	<body>
+		<div id="fh5co-wrapper">
+		<div id="fh5co-page">
+		<div id="fh5co-header">
+			<header id="fh5co-header-section">
+				<div class="container">
+					<div class="nav-header">
+						<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+						<h1 id="fh5co-logo"><a href="{% url 'home' %}">Fit<span>ty</span></a></h1>
+						<!-- START #fh5co-menu-wrap -->
+						<nav id="fh5co-menu-wrap" role="navigation">
+							<ul class="sf-menu" id="fh5co-primary-menu">
+								<li>
+									<a href="{% url 'home' %}">Home</a>
+								</li>
+								<li>
+                                    <a href="{% url 'workouts'%}#BB" class="fh5co-sub-ddown">Workout Types</a>
+									 <ul class="fh5co-sub-menu">
+									 	<li><a href="{% url 'workouts' %}#PPL">Push - Pull - Legs</a></li>
+									 	<li><a href="{% url 'workouts' %}#UpperLower">Upper - Lower</a></li>
+										<li>
+											<a href="{% url 'workouts' %}#Brosplit" class="fh5co-sub-ddown">Bro Split</a>
+											<ul class="fh5co-sub-menu">
+												<li><a href="{% url 'workouts' %}#Brosplit">Shoulders</a></li>
+												<li><a href="{% url 'workouts' %}#Pectoral">Chest</a></li>
+												<li><a href="{% url 'workouts' %}#ABS">ABS</a></li>
+												<li><a href="{% url 'workouts' %}#Arms">Arm</a></li>
+												<li><a href="{% url 'workouts' %}#Legs">Leg</a></li>
+												<li><a href="{% url 'workouts' %}#Back">Back</a></li>
+											</ul>
+										</li>
+										<li><a href="{% url 'workouts' %}#Yoga">Yoga</a></li>
+										<li><a href="{% url 'workouts' %}#calisthenics">Calisthenics</a></li>
+										<li><a href="{% url 'workouts' %}#Cardio">Cardio</a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="{% url 'schedule'%}">Schedule</a>
+								</li>
+								<li><a href="{% url 'trainers'%}">Trainers</a></li>
+								{% if user.is_authenticated %}
+                                    {% if user.trainer %}
+                                    <li>
+                                        <a href="{% url 'trainer_account'%}" class="fh5co-sub-ddown">{{user.username}}</a>
+                                         <ul class="fh5co-sub-menu">
+                                            <li><a href="{% url 'trainer_account'%}">My account</a></li>
+                                            <li><a href="{% url 'trainer_account'%}">Add Workout</a></li>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="{% url 'logout' %}">Log out</a>
+                                        </ul>
+                                    </li>
+                                    {%else%}
+                                    <li>
+                                        <a href="{% url 'trainee_account'%}" class="fh5co-sub-ddown">{{user.username}}</a>
+                                         <ul class="fh5co-sub-menu">
+                                            <li><a href="{% url 'trainee_account'%}">My account</a></li>
+                                                    <li><a href="{%url 'tdee_calculation'%}">Calculate TDEE</a></li>
+                                            <a class="dropdown-item" href="{% url 'stats' %}">My statistics</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="{% url 'logout' %}">Log out</a>
+                                        </ul>
+                                    </li>
+                                    {%endif%}
+								{% else %}
+								<li><a href="{% url 'login' %}" class="btn btn-outline-secondary">Log in</a></li>
+								<li><a href="{% url 'signup' %}" class="btn btn-outline-secondary">Sign up</a></li>
+								{% endif %}
+								</ul>
+							</li>
+						</nav>
+					</div>
+				</div>
+			</header>
+		</div>
+		<!-- end:fh5co-header -->
+		<div class="fh5co-hero">
+			<div class="fh5co-overlay"></div>
+			<div class="fh5co-cover" data-stellar-background-ratio="0.5" style="background-image: url(../static/images/wo5.jpg);">
+				<div class="desc animate-box">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-7">
+								<h2>Fitness &amp; Health <br>is a <b>Mentality</b></h2>
+								{% if user.is_authenticated %}
+								{% else %}
+									<span><a class="btn btn-primary" href="{% url 'signup' %}">Start Your Journey</a></span>
+								{% endif %}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+        </div>
+        </div>
+            <br><br>
+            <div class="program program-schedule" style="text-align: center">
+                <h3>Username: {{user.username}}</h3>
+                <a href="{% url 'edit_stats' %}" class="btn btn-outline-dark btn-sm btn-block">Edit Statistics</a>
+            </div></a>
+            <br>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+            <div class="row">
+					<div class="col-md-8 col-md-offset-2">
+						<div class="heading-section text-center animate-box">
+							<h2>My Statistics: </h2>
+						</div>
+                    </div>
+            </div>
+      <ul class="list-group list-group-flush">
+
+          <li class="list-group-item">Height: {{user.trainee.height}}cm</li>
+          <li class="list-group-item">Weight:  {{user.trainee.weight}}kg</li>
+          <li class="list-group-item">Neck: {{user.trainee.boyun}}cm</li>
+          <li class="list-group-item">Shoulders: {{user.trainee.omuz}}cm</li>
+          <li class="list-group-item">Right Arm: {{user.trainee.sag_kol}}cm</li>
+          <li class="list-group-item">Left Arm: {{user.trainee.sol_kol}}cm</li>
+          <li class="list-group-item">Waist: {{user.trainee.bel}}cm</li>
+          <li class="list-group-item">Pelvis: {{user.trainee.alt_karin}}cm</li>
+          <li class="list-group-item">Right Leg: {{user.trainee.sag_bacak}}cm</li>
+          <li class="list-group-item">Left Leg: {{user.trainee.sol_bacak}}cm</li>
+          <li class="list-group-item">Hip: {{user.trainee.kalca}}cm</li>
+          <li class="list-group-item">Right Forearm: {{user.trainee.sag_on_kol}}cm</li>
+          <li class="list-group-item">Left Forearm: {{user.trainee.sol_on_kol}}cm</li>
+          <li class="list-group-item">Body Fat: {{user.trainee.body_fat}}%</li>
+</ul>
+    </div>
+      <br><br>
+    <div class="col-sm">
+        <div class="row">
+					<div class="col-md-8 col-md-offset-2">
+						<div class="heading-section text-center animate-box">
+							<h2>My Targets: </h2>
+						</div>
+                    </div>
+            </div>
+      <ul class="list-group list-group-flush">
+          <li class="list-group-item">Target Weight: {{user.trainee.target_weight}}kg</li>
+          <li class="list-group-item">Target Neck: {{user.trainee.target_boyun}}cm</li>
+          <li class="list-group-item">Target Shoulders: {{user.trainee.target_omuz}}cm</li>
+          <li class="list-group-item">Target Right Arm: {{user.trainee.target_sag_kol}}cm</li>
+          <li class="list-group-item">Target Left Arm: {{user.trainee.target_sol_kol}}cm</li>
+          <li class="list-group-item">Target Waist: {{user.trainee.target_bel}}cm</li>
+          <li class="list-group-item">Target Pelvis: {{user.trainee.target_alt_karin}}cm</li>
+          <li class="list-group-item">Target Right Leg: {{user.trainee.target_sag_bacak}}cm</li>
+          <li class="list-group-item">Target Left Leg: {{user.trainee.target_sol_bacak}}cm</li>
+          <li class="list-group-item">Target Hip: {{user.trainee.target_kalca}}cm</li>
+          <li class="list-group-item">Target Right Forearm: {{user.trainee.target_sag_on_kol}}cm</li>
+          <li class="list-group-item">Target Left Forearm: {{user.trainee.target_sol_on_kol}}cm</li>
+          <li class="list-group-item">Target Body Fat: {{user.trainee.target_body_fat}}%</li>
+</ul>
+    </div>
+  </div>
+</div>
+</body>
+</html>

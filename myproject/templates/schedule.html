@@ -1,0 +1,281 @@
+{%load static%}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"> </script>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Fitty</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
+	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
+	<meta name="author" content="FREEHTML5.CO" />
+
+  <!--
+	//////////////////////////////////////////////////////
+
+	FREE HTML5 TEMPLATE
+	DESIGNED & DEVELOPED by FREEHTML5.CO
+
+	Website: 		http://freehtml5.co/
+	Email: 			info@freehtml5.co
+	Twitter: 		http://twitter.com/fh5co
+	Facebook: 		https://www.facebook.com/fh5co
+
+	//////////////////////////////////////////////////////
+	 -->
+
+  	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<link rel="shortcut icon" href="{% static 'website/images /fit-boxing.svg'%}">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700,900' rel='stylesheet' type='text/css'>
+
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="{% static 'website/css/animate.css'%}">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="{% static 'website/css/icomoon.css'%}">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="{% static 'website/css/bootstrap.css'%}">
+	<!-- Superfish -->
+	<link rel="stylesheet" href="{% static 'website/css/superfish.css' %}">
+
+	<link rel="stylesheet" href="{% static 'website/css/style.css' %}">
+
+
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="{% static 'website/js/respond.min.js'%}"></script>
+	<![endif]-->
+
+	</head>
+	<body>
+		<div id="fh5co-wrapper", style="background-color: black;">
+		<div id="fh5co-page">
+		<div id="fh5co-header">
+			<header id="fh5co-header-section">
+				<div class="container">
+					<div class="nav-header">
+						<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+						<h1 id="fh5co-logo"><a href="{% url 'home' %}">Fit<span>ty</span></a></h1>
+						<!-- START #fh5co-menu-wrap -->
+						<nav id="fh5co-menu-wrap" role="navigation">
+							<ul class="sf-menu" id="fh5co-primary-menu">
+								<li>
+									<a href="{% url 'home' %}">Home</a>
+								</li>
+								<li>
+                                    <a href="{% url 'workouts'%}" class="fh5co-sub-ddown">Workout Types</a>
+									 <ul class="fh5co-sub-menu">
+									 	<li><a href="{% url 'workouts' %}#PPL">Push - Pull - Legs</a></li>
+									 	<li><a href="{% url 'workouts' %}#UpperLower">Upper - Lower</a></li>
+										<li>
+											<a href="{% url 'workouts' %}#Brosplit" class="fh5co-sub-ddown">Bro Split</a>
+											<ul class="fh5co-sub-menu">
+												<li><a href="{% url 'workouts' %}#Brosplit">Shoulders</a></li>
+												<li><a href="{% url 'workouts' %}#Pectoral">Chest</a></li>
+												<li><a href="{% url 'workouts' %}#ABS">ABS</a></li>
+												<li><a href="{% url 'workouts' %}#Arms">Arm</a></li>
+												<li><a href="{% url 'workouts' %}#Legs">Leg</a></li>
+												<li><a href="{% url 'workouts' %}#Back">Back</a></li>
+											</ul>
+										</li>
+										<li><a href="{% url 'workouts' %}#Yoga">Yoga</a></li>
+										<li><a href="{% url 'workouts' %}#calisthenics">Calisthenics</a></li>
+										<li><a href="{% url 'workouts' %}#Cardio">Cardio</a></li>
+									</ul>
+								</li>
+								<li class="active">
+									<a href="{% url 'schedule'%}">Schedule</a>
+								</li>
+								<li><a href="{% url 'trainers'%}">Trainers</a></li>
+								{% if user.is_authenticated %}
+                                    {% if user.trainer %}
+                                    <li>
+                                        <a href="{% url 'trainer_account'%}" class="fh5co-sub-ddown">{{user.username}}</a>
+                                         <ul class="fh5co-sub-menu">
+                                            <li><a href="{% url 'trainer_account'%}">My account</a></li>
+                                            <li><a href="{% url 'add_workout'%}">Add Workout</a></li>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="{% url 'logout' %}">Log out</a>
+                                        </ul>
+                                    </li>
+                                    {%else%}
+                                    <li>
+                                        <a href="{% url 'trainee_account'%}" class="fh5co-sub-ddown">{{user.username}}</a>
+                                         <ul class="fh5co-sub-menu">
+                                            <li><a href="{% url 'trainee_account'%}">My account</a></li>
+                                                    <li><a href="{%url 'tdee_calculation'%}">Calculate TDEE</a></li>
+                                            <a class="dropdown-item" href="{% url 'stats' %}">My statistics</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="{% url 'logout' %}">Log out</a>
+                                        </ul>
+                                    </li>
+                                    {%endif%}
+								{% else %}
+								<li><a href="{% url 'login' %}" class="btn btn-outline-secondary">Log in</a></li>
+								<li><a href="{% url 'signup' %}" class="btn btn-outline-secondary">Sign up</a></li>
+								{% endif %}
+								</ul>
+							</li>
+						</nav>
+					</div>
+				</div>
+			</header>
+		</div>
+            <br><br><br><br><br><br><br>
+            <div class="heading-section text-center animate-box">
+				<div class="container mt-5"><h2>My workout List</h2></div>
+            </div>
+            <div class="container mt-5">
+                <table class="table table-borderless main">
+                    <thead>
+                        <tr class="head">
+                            <th scope="col">Choose</th>
+                            <th scope="col">Created</th>
+                            <th scope="col">Trainer</th>
+                            <th scope="col">Working muscles</th>
+                            <th scope="col">Difficulty</th>
+							<th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i,j in zipped %}
+                            <tr class="rounded bg-white">
+                                <th scope="row">
+                                    <div class="form-check"> <a class="btn btn-primary" href="../workout/{{i.id}}"></a></div>
+                                </th>
+                                <td>{{i.last_updated}}</td>
+                                <td class="d-flex align-items-center"> <img src="{{i.trainer.photo.url}}" class="rounded-circle" width="25"> <span class="ml-2">{{i.trainer.user.username}}</span> </td>
+                                <td>{{i.working_muscles}}</td>
+                                <td>{{i.difficulty}}/5</td>
+								{% if j.first.id %}
+								<td><a class="btn btn-secondary" data-id= "{{j.first.id}}">{{ j.first.get_statuses_display }}</a></td>
+								{% endif %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+			            <br><br><br><br><br><br><br>
+          <footer>
+			<div id="footer">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-4 animate-box">
+							<h3 class="section-title">About Us</h3>
+							<p>At Fitty, we are working everyday to make your bodies in better shape. </p>
+						</div>
+
+						<div class="col-md-4 animate-box">
+							<h3 class="section-title">Our Address</h3>
+							<ul class="contact-info">
+								<li><i class="icon-map-marker"></i>ODTU TEKNOKENT MET YERLESKESI, Mustafa Kemal Mah. Dumlupinar Bulvari No:280 E Blok 2/A, 06510 Cankaya/Ankara</li>
+								<li><i class="icon-phone"></i>+905355196960</li>
+								<li><i class="icon-envelope"></i><a href="#">uygaryasar1999@gmail.com</a></li>
+								<li><i class="icon-globe2"></i><a href="#">www.fitty.com</a></li>
+							</ul>
+						</div>
+						<div class="col-md-4 animate-box">
+							<h3 class="section-title">Drop us a line</h3>
+							<form class="contact-form">
+								<div class="form-group">
+									<label for="name" class="sr-only">Name</label>
+									<input type="name" class="form-control" id="name" placeholder="Name">
+								</div>
+								<div class="form-group">
+									<label for="email" class="sr-only">Email</label>
+									<input type="email" class="form-control" id="email" placeholder="Email">
+								</div>
+								<div class="form-group">
+									<label for="message" class="sr-only">Message</label>
+									<textarea class="form-control" id="message" rows="7" placeholder="Message"></textarea>
+								</div>
+								<div class="form-group">
+									<input type="submit" id="btn-submit" class="btn btn-send-message btn-md" value="Send Message">
+								</div>
+							</form>
+						</div>
+					</div>
+					<div class="row copy-right">
+						<div class="col-md-6 col-md-offset-3 text-center">
+							<p class="fh5co-social-icons">
+								<a href="#"><i class="icon-twitter2"></i></a>
+								<a href="#"><i class="icon-facebook2"></i></a>
+								<a href="#"><i class="icon-instagram"></i></a>
+								<a href="#"><i class="icon-dribbble2"></i></a>
+								<a href="#"><i class="icon-youtube"></i></a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+
+	</div>
+	<!-- END fh5co-page -->
+
+	</div>
+	<!-- END fh5co-wrapper -->
+
+	<!-- jQuery -->
+
+
+	<script src="{% static 'website/js/jquery.min.js'%}"></script>
+	<!-- jQuery Easing -->
+	<script src="{% static 'website/js/jquery.easing.1.3.js'%}"></script>
+	<!-- Bootstrap -->
+	<script src="{% static 'website/js/bootstrap.min.js'%}"></script>
+	<!-- Waypoints -->
+	<script src="{% static 'website/js/jquery.waypoints.min.js'%}"></script>
+	<!-- Stellar -->
+	<script src="{% static 'website/js/jquery.stellar.min.js'%}"></script>
+	<!-- Superfish -->
+	<script src="{% static 'website/js/hoverIntent.js'%}"></script>
+	<script src="{% static 'website/js/superfish.js'%}"></script>
+
+	<!-- Main JS (Do not remove) -->
+	<script src="{% static 'website/js/main.js'%}"></script>
+	<script>
+        $('.btn.btn-secondary').click(function(e) {
+                var status_id = $(this).data('id')
+				console.log(status_id)
+                $.ajax({
+                    type: 'POST',
+                    url: '{% url 'ajax_status' %}',
+                    data: {'status_id': status_id, 'csrfmiddlewaretoken': '{{csrf_token}}'},
+                    dataType: 'json',
+                    success: function (response) {
+                        if(response.statuses == 'To Do'){$(e.currentTarget).html('<a class="btn btn-secondary" data-id=$[status_id]>To Do</a>')}
+                        else {$(e.currentTarget).html('<a class="btn btn-secondary" data-id=$[status_id]>Done</a>')}
+                        console.log(status_id);
+                    },
+                    error: function (rs, e) {
+                        console.log(rs.responseText);
+                    }
+                })
+            }
+
+
+        )
+
+
+    </script>
+	</body>
+</html>

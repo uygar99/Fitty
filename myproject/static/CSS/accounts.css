@@ -1,0 +1,33 @@
+body {
+  background-image: url(../images/fit3.png);
+  background-size: 33%;
+  background-position: left;
+  background-repeat: repeat;
+  background-color: #1b2426;
+}
+h3 {
+    color: darkslateblue;
+    font-family: "Gloria Hallelujah", serif;
+    text-align: center;
+}
+h4 {
+    color: antiquewhite;
+    font-family: "Playfair Display", serif;
+    text-align: center;
+}
+
+.logo {
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 70px;
+}
+
+.logo a {
+  color: goldenrod;
+}
+
+.logo a:hover,
+.logo a:active {
+  text-decoration: none;
+}
+
+

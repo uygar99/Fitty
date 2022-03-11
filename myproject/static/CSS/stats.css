@@ -1,0 +1,21 @@
+ul {
+    display: inline-block;
+    width: 100%;
+}
+body {
+  background-color: #1b2426;
+}
+
+h1 {
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 30px;
+    text-align: center;
+    color: whitesmoke;
+}
+h3 {
+    font-size: 17px;
+    color: whitesmoke;
+}
+li {
+    text-align: center
+}

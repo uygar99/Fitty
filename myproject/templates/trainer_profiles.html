@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'css/account.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+{% endblock %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fitty</title>
+</head>
+<body>
+<div class="row py-5 px-4">
+    <div class="col-md-5 mx-auto">
+        <!-- Profile widget -->
+        <div class="bg-white shadow rounded overflow-hidden">
+            <div class="px-4 pt-0 pb-4 cover">
+                <div class="media align-items-end profile-head">
+                    <div class="profile mr-3"><img src="{{trainer.photo.url}}" alt="..." width="130" class="rounded mb-2 img-thumbnail"></div>
+                    <div class="media-body mb-5 text-white">
+                        <h4 class="mt-0 mb-0">{{trainer.user.username}}</h4>
+                        <p class="small mb-4"> <i class="fas fa-map-marker-alt mr-2"></i>{{trainer.proficiency}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-light p-4 d-flex justify-content-end text-center">
+            </div>
+            <div class="px-4 py-3">
+                <h5 class="mb-0">About</h5>
+                <div class="shadow p-3 mb-5 bg-white rounded">
+                    <p class="font-italic mb-0">{{trainer.description}}</p>
+                </div>
+            </div>
+            <div class="py-4 px-4">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <h5 class="mb-0">Prepared Workouts: </h5>
+                </div>
+                <div class="shadow p-3 mb-5 bg-white rounded">
+                    {% for obj in workouts %}
+                          <div class="card">
+                              <div class="shadow p-3 mb-5 bg-white rounded">
+                                  <a href="../../workout/{{obj.id}}"><img class="card-img-top" src="{{obj.photo.url}}" alt="No image"></a>
+                            <div class="card-body">
+                              <h5>{{obj.name}}</h5>
+                              <p>Description: {{obj.description}}</p>
+                              <p>Muscles: {{obj.working_muscles}}</p>
+                              <p>Last Update: {{obj.last_updated}}</p>
+                              <p>Difficulty: {{obj.difficulty}}</p>
+                              </div>
+                         </div>
+                      </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'css/account.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+{% endblock %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fitty</title>
+</head>
+<body>
+<div class="container mt-5 d-flex justify-content-center">
+    <div class="card p-3">
+        <div class="d-flex align-items-center">
+            <div class="ml-3 w-100">
+                <h4 class="mb-0 mt-0">Username: {{user.username}}</h4>
+                </div>
+            </div>
+        <div class="container mt-5">
+                        <h4>Scheduled Workouts: </h4>
+                <table class="table table-borderless main">
+                    <thead>
+                        <tr class="head">
+                            <th scope="col">Choose</th>
+                            <th scope="col">Created</th>
+                            <th scope="col">Trainer</th>
+                            <th scope="col">Working muscles</th>
+                            <th scope="col">Difficulty</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in workout_list %}
+                            <tr class="rounded bg-white">
+                                <th scope="row">
+                                    <div class="form-check"> <a class="btn btn-primary" href="../workout/{{i.id}}"></a></div>
+                                </th>
+                                <td>{{i.last_updated}}</td>
+                                <td class="d-flex align-items-center"> <img src="{{i.trainer.photo.url}}" class="rounded-circle" width="25"> <span class="ml-2">{{i.trainer.user.username}}</span> </td>
+                                <td>{{i.working_muscles}}</td>
+                                <td>{{i.difficulty}}/5</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

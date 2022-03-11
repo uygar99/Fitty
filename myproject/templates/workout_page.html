@@ -1,0 +1,102 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Fitty</title>
+<!--
+
+Timeless Template
+
+http://www.templatemo.com/tm-517-timeless
+
+-->
+    <!-- load CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
+    <!-- Google web font "Open Sans" -->
+
+    <link rel="stylesheet" href="{% static 'website/css/bootstrap.css'%}">
+    <!-- https://getbootstrap.com/ -->
+    <link rel="stylesheet" href="{% static 'css/templatemo-style.css'%}">
+    <!-- Templatemo style -->
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <header class="text-center tm-site-header">
+                    <h1 id="fh5co-logo" style="text-transform: uppercase">{{workout.name}}</h1>
+                </header>
+            </div>
+        </div>
+        <div class="container tm-container-2">
+            <div class="row tm-section-mb" style="display: block; margin: auto">
+                <div class="col-lg-12">
+                    <div class=" tm-timeline-item">
+                        <div class="tm-timeline-item-inner">
+                            <img src="{{workout.trainer.photo.url}}" alt="Image" style="height: 200px">
+                            <div class="tm-timeline-connector">
+                                <p class="mb-0">&nbsp;</p>
+                            </div>
+                            <div class="tm-timeline-description-wrap">
+                                <div class="tm-bg-dark tm-timeline-description">
+                                    <h3 class="tm-text-green tm-font-400">Trainer name: {{workout.trainer.user.username}}</h3>
+                                    <p>Trainer description: {{workout.trainer.description}}</p>
+                                    <p class="tm-text-green float-right mb-0">Proficiency: {{workout.trainer.proficiency}}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tm-timeline-connector-vertical"></div>
+                    </div>
+
+                    <div class="tm-timeline-item">
+                        <div class="tm-timeline-item-inner">
+                            <img src="{{workout.photo.url}}" alt="Image" style="height: 250px">
+                            <div class="tm-timeline-connector">
+                                <p class="mb-0">&nbsp;</p>
+                            </div>
+                            <div class="tm-timeline-description-wrap">
+                                <div class="tm-bg-dark-light tm-timeline-description">
+                                    <h3 class="tm-text-cyan tm-font-400">Workout name: {{workout.name}}</h3>
+                                    <p>Working muscles: {{workout.working_muscles}}</p>
+                                    <p>Workout description: {{workout.description}}</p>
+                                    <p class="tm-text-cyan float-right mb-0">Last updated: {{workout.last_updated}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tm-timeline-connector-vertical"></div>
+                    </div>
+                     <div class="row">
+            <div class="col-lg-12">
+                <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="tm-welcome-text" style="text-align: center">Do our trainer {{workout.trainer.user.username}}'s {{workout.name}} workout</h2>
+                </div>
+            </div>
+                <div class="tm-video-container">
+
+
+                    <iframe height="600" width="1000" style="display: block; margin:auto;"
+                    src="{{workout.url}}">
+                    </iframe>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+            </div></div></div>
+            <!--  row -->
+
+    <!-- .container -->
+
+    <script src="js/jquery.min.js"></script>
+
+</body>
+</html>

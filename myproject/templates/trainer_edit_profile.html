@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'css/account.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+{% endblock %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fitty</title>
+</head>
+<body>
+<div class="container mt-5 d-flex justify-content-center">
+    <div class="card p-3">
+        <div class="d-flex align-items-center">
+<div class="container"> <div class=" text-center mt-5 ">
+        <h1>Edit Profile</h1>
+    </div>
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+        <form method="post"  name="username_form" class="post-form" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ username_form.as_p }}
+            <button type="submit" name="username_form" class="btn btn-secondary btn-send pt-2 btn-block">Edit Username</button>
+        </form>
+        <br>
+        <form method="post" name="form" class="post-form" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" name="form" class="btn btn-secondary btn-send pt-2 btn-block">Edit Qualifications</button>
+        </form>
+        <br>
+        <form method="post" action="/account/edit_trainer" name="image_form" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ image_form }}
+            <button type="submit" name="image_form" class="btn btn-secondary btn-send pt-2 btn-block">Edit Image</button>
+        </form><!-- /.row-->
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
